@@ -1,5 +1,5 @@
-import 'package:easy_order_mobile/features/auth/domain/entities/user.dart';
+import 'package:easy_order_mobile/features/auth/data/models/login_response_model.dart';
 
 abstract class AuthRepository {
-  Future<User> login(String email, String password);
+  Future<LoginResponseModel> login(String email, String password);
 }

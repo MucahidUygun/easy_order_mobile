@@ -1,5 +1,5 @@
 import 'package:easy_order_mobile/features/auth/data/dataSources/auth_remote_datasource.dart';
-import 'package:easy_order_mobile/features/auth/domain/entities/user.dart';
+import 'package:easy_order_mobile/features/auth/data/models/login_response_model.dart';
 import 'package:easy_order_mobile/features/auth/domain/repositories/auth_repository.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
@@ -8,7 +8,7 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(this.remote);
 
   @override
-  Future<User> login(String email, String password) {
+  Future<LoginResponseModel> login(String email, String password) {
     return remote.login(email, password);
   }
 }

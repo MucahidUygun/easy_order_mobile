@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:easy_order_mobile/core/network/api_client.dart';
 import 'package:easy_order_mobile/core/network/device/device_info_providers.dart';
 import 'package:easy_order_mobile/core/network/dio_client.dart';
+import 'package:easy_order_mobile/core/security/token_providers.dart';
 import 'package:easy_order_mobile/features/auth/data/dataSources/auth_remote_datasource.dart';
 import 'package:easy_order_mobile/features/auth/data/dataSources/auth_remote_datasource_impl.dart';
 import 'package:easy_order_mobile/features/auth/data/repositories/auth_repository_impl.dart';
@@ -30,7 +31,8 @@ final authRepositoryProvider = Provider<AuthRepository>((ref) {
 });
 
 final loginUseCaseProvider = Provider<LoginUseCase>((ref) {
-  return LoginUseCase(ref.read(authRepositoryProvider));
+  return LoginUseCase(
+      ref.read(authRepositoryProvider), ref.read(tokenStorageProvider));
 });
 
 final loginNotifierProvider =

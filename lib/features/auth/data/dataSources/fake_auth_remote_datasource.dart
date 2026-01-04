@@ -1,15 +1,11 @@
-import '../models/user_model.dart';
+import 'package:easy_order_mobile/features/auth/data/models/login_response_model.dart';
 import 'auth_remote_datasource.dart';
 
 class FakeAuthRemoteDataSource implements AuthRemoteDataSource {
   @override
-  Future<UserModel> login(String email, String password) async {
+  Future<LoginResponseModel> login(String email, String password) async {
     await Future.delayed(const Duration(seconds: 1));
 
-    return UserModel(
-      id: "1",
-      email: email,
-      accessToken: "fake-jwt-token",
-    );
+    return LoginResponseModel(token: 'sadasda', expiration: DateTime.now());
   }
 }
