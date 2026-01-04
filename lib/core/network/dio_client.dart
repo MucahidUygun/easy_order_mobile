@@ -3,11 +3,12 @@ import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:easy_order_mobile/core/network/device/device_info_service.dart';
 import 'package:easy_order_mobile/core/network/interceptors/common_headers_interceptor.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Dio createDio(DeviceInfoService deviceInfoService) {
   final dio = Dio(
     BaseOptions(
-      baseUrl: "https://10.0.2.2:7064/api",
+      baseUrl: "${dotenv.env['BASE_URL']}",
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',

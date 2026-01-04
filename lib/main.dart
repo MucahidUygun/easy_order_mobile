@@ -2,9 +2,11 @@ import 'package:easy_order_mobile/core/network/device/device_info_providers.dart
 import 'package:easy_order_mobile/core/network/device/device_info_service_impl.dart';
 import 'package:easy_order_mobile/features/auth/presentation/pages/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() async {
+  await dotenv.load(fileName: ".env");
   WidgetsFlutterBinding.ensureInitialized();
 
   final deviceInfoService = DeviceInfoServiceImpl();
